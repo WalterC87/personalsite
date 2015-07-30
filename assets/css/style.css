@@ -536,6 +536,10 @@ nav ul li a:hover{
     display: inline;
   }
 
+  h1{
+    font-size: 5.625rem;
+  }
+
   nav ul li a{
     font-size: 1.125rem;
     margin-top: 5px

@@ -7,7 +7,7 @@
 }
 
 .list-unstyled li i[class*="fa"]{
-  font-size: 10px;
+  font-size: 12px;
 }
 
 @font-face {
@@ -117,6 +117,11 @@
   padding: 0;
 }
 
+/*html {
+  min-height: 100%;
+  position: relative;
+}*/
+
 body{
 	font-family: "Open Sans", sans-serif;
 	background-color: #fff;
@@ -161,7 +166,8 @@ footer p{
 }
 
 a{
-	color: #0262C2
+  color: #fff;
+  text-decoration: none; 
 }
 
 small{
@@ -174,6 +180,11 @@ small{
 nav{
   background-color: #1565c0;
   color: #fff;
+}
+
+nav a:first-child{
+  color: #fff;
+  text-decoration: none;
 }
 
 nav > div{
@@ -270,6 +281,10 @@ nav ul li a:hover{
 
 /*Layout Styles---------------*/
 
+#blog{
+  margin-top: 15px;
+}
+
 .name-menu figure,
 .name-menu p{
   display: inline-block;
@@ -318,7 +333,7 @@ nav ul li a:hover{
   display: inline-block;
   vertical-align: middle;
   color: #37474f;
-  font-size: 1.875rem;
+  font-size: 1.5625rem;
 }
 
 .title-timeline span{
@@ -406,10 +421,144 @@ nav ul li a:hover{
   padding-left: .45rem;
 }
 
+.list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  /*height: 62px;
+  background-color: #f5f5f5;*/
+}
+
+/*Articles Styles---------------*/
+
+.margin-bottom-20{
+  margin-bottom: 1.25rem;
+}
+
+hr{
+  border-width: 1px 0px 0px;
+  border-style: solid none none;
+  border-color: #bdbdbd -moz-use-text-color
+}
+
+article{
+  font-family: "Open Sans", sans-serif;
+  color: #555;
+}
+
+.article-date{
+  font-style: italic;
+  margin-bottom: 0.875rem;
+}
+
+.article-date ul li{
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+.article-date ul li::before{
+  content: "/";
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.article-date ul li:first-child::before{
+  content: " ";
+  margin: 0;
+}
+
+.article-brief h4{
+  margin-bottom: 10px;
+}
+
+.article-brief h4 a{
+  color: #555;
+  font-size: 1.5625rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.article-brief h4 a:hover{
+  color: #1565c0;
+}
+
+.article-brief p{
+  font-size: 0.875rem;
+}
+
+
+/*Aside Style----------------*/
+
+#info section:first-child,
+#info section:last-child{
+  padding: 1rem 0 1rem;
+}
+
+#info section:first-child{
+  background-color: #0d47a1;
+  text-align: center;
+  margin: 0;
+}
+
+#info section:first-child figure img{
+  width: 130px;
+  height: 130px;
+}
+
+#info section:first-child p,
+#info section:first-child p small{
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+#info section:first-child p{
+  font-size: 1.25rem;
+}
+
+#info section:first-child p small{
+  font-size: 0.8625rem;
+  font-weight: normal;
+}
+
+#info section:last-child{
+  background-color: #1565c0;
+  color: #fff;
+  text-align: left;
+  padding: 0 0.3125rem;
+}
+
+#info section:last-child p{
+  font-size: 0.8125rem;
+}
+
+#info section:last-child a{
+  color: #fff;
+}
+
+#info section:last-child p a{
+  /*color: #fff;*/
+  text-decoration: underline;
+}
+
+#info section:last-child h2{
+  font-size: 1.25rem;
+}
+
 /*Media Queryes--------------*/
 
 /* Larger than mobile */
 @media (min-width: 400px) {
+  .display-xs{
+    display: block;
+    margin-left: 1rem; 
+    font-size: 1.875rem;
+  }
   .container{
     width: 100%;
     margin: auto;
@@ -421,7 +570,7 @@ nav ul li a:hover{
   }
 
   h2{
-    font-size: 2.1875rem; /*60/16*/
+    font-size: 1.75rem; /*28/16*/
   }
 
   small{
@@ -433,21 +582,25 @@ nav ul li a:hover{
     left: 0;
     margin-top: 15px;
     margin-bottom: 15px;
+    text-align: left;
   }
 
   nav ul li{
-    font-size: 0.9375rem;
+    font-size: 1rem;
+    display: block;
+    margin: 1rem 1rem 1.25rem;
   }
 
-  nav ul li::after{
-    content: " | ";
-  }
-
-  nav ul li:last-child::after{
-    content: "";
+  aside{
+    display: none;
   }
 
 /*Layout Styles ------------*/  
+
+#toggle-menu{
+  cursor: pointer;
+  text-align: right;
+}
 .sub-page-title{
   margin: 10px 0px 0px 5px;
   font-size: 2.725rem;
@@ -459,9 +612,23 @@ nav ul li a:hover{
 }
 
 /*Main Styles---------------*/
-  .main-menu,
+ .hide-menu{
+    display: none;
+  }
+
+  .container a{
+    color: #0262C2;
+    text-decoration: underline;
+  }
+  
   .name-menu{
     display: block;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+  }
+
+  .main-menu{
     width: 100%;
     text-align: center;
     height: 100%;
@@ -533,9 +700,6 @@ nav ul li a:hover{
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {  
-  nav ul li{
-    font-size: 1.25rem;
-  }
 
   .hero.is-larger{
     padding-top: 75px;
@@ -568,12 +732,18 @@ nav ul li a:hover{
     display: block;
   }
 
-  nav{
+/*  nav{
     height: 80px;
-  }
+  }*/
 
   nav ul{
     margin: 0;
+  }
+
+  nav ul li{
+    width: 100%;
+    text-align: right;
+    margin: 1rem 2rem 1rem -3rem;
   }
 
   nav ul li a{
@@ -581,7 +751,7 @@ nav ul li a:hover{
   }
 
   .name-menu,
-  .main-menu{
+  .display-xs{
     display: inline-block;
   }
 
@@ -590,8 +760,8 @@ nav ul li a:hover{
     text-align:left;
   }
 
-  .main-menu{
-    width: 58%;
+  .display-xs{
+    width: 50%;
     text-align: right;    
   }
 
@@ -634,9 +804,35 @@ nav ul li a:hover{
     font-size: 5.625rem;
   }
 
+  nav ul{
+    position: relative;
+    left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+  }
+
+  nav ul li{
+    font-size: 0.9375rem;
+    display: inline;
+    margin: 0;
+  }
+
+  nav ul li::after{
+    content: " | ";
+  }
+
+  nav ul li:last-child::after{
+    content: "";
+  }
+
   nav ul li a{
     font-size: 1.125rem;
     margin-top: 5px
+  }
+
+  aside{
+    display: block;
   }
 
   .hero.is-larger{
@@ -645,7 +841,9 @@ nav ul li a:hover{
   .name-menu,
   .main-menu{
     position: relative;
+    display: inline-block;
   }
+
   .name-menu{
     width: 45%;
     margin: 0;
@@ -671,6 +869,54 @@ nav ul li a:hover{
   .container {
     width: 970px;
   }
+
+  .display-xs{
+    display: none;  
+  }
+
+  .hide-menu{
+    display: inline-block;
+  }
+
+  /*Aside Styles-------------*/
+
+  #info section:last-child div ul li{
+    font-size: 0.8125rem;
+    margin-top: 1rem;
+    margin-left: 0.3125rem;
+  }
+
+  #info section:last-child div ul li span{
+    margin-right: 1rem;
+  }
+
+  #info section:last-child div ul li span i.fa-mobile{
+    font-size: 1.625rem;
+  }
+
+  #info section:last-child div ul li a{
+    font-size: 0.625rem;
+  }
+
+
+  #info section:last-child div ul li ul li a div[class*="icon-"]{
+    font-size: 1.5625rem;
+    color: #fff;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #info section:last-child div span.round-blue i[class*="fa"]{
+    font-size: 1.125rem;
+    margin-left: -2px;
+  }
+  .round-blue{
+    height: 32px;
+    position: relative;
+    padding: 4px 0px 0px;
+    margin-top: 11px;
+  }
+
 }
 
 /* Larger than Desktop HD */
@@ -679,6 +925,42 @@ nav ul li a:hover{
   .container {
     width: 1170px;
   }
+
+  /*Aside Styles-------------*/
+
+  #info section:last-child div ul li{
+    font-size: 1rem;
+  }
+
+  #info section:last-child div ul li span{
+    margin-right: 1rem;
+  }
+
+  #info section:last-child div ul li span i.fa-mobile{
+    font-size: 1.625rem;
+  }
+
+  #info section:last-child div ul li a{
+    font-size: 0.625rem;
+  }
+  
+  #info section:last-child div span.round-blue i[class*="fa"]{
+    font-size: 1.25rem;
+  }
+
+    #info section:last-child div ul li ul li a div[class*="icon-"]{
+    font-size: 1.875rem;
+  }
+
+  .round-blue{
+    background-color: #0D47A1;
+    border-radius: 50%;
+    height: 42px;
+    position: relative;
+    padding: 10px 1px 0px;
+    margin-top: 8px;
+  }
+
 }
 
 /*Buttons Styles------------*/

@@ -188,3 +188,13 @@ var App = function () {
     };
 
 }();
+
+$(function(){
+    $("#toggle-menu").on("click", function(e){
+        console.log('entro');
+        e.preventDefault();
+        var target = $(this).data('target');
+        console.log(target);
+        return $(target).slideToggle(300);
+    })
+})
